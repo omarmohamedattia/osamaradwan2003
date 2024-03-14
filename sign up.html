@@ -165,6 +165,36 @@ signupbtn.onclick = function(){
     signupbtn.classList.remove("disable")
     signinbtn.classList.add("disable")
 }
+      }// Check if all required fields are filled in
+function checkForm() {
+  let name = document.getElementById("namefield").value;
+  let email = document.getElementById("user").value;
+  let password = document.getElementById("password").value;
+
+  if (name === "" || email === "" || password === "") {
+    alert("Please fill in all required fields.");
+    return false;
+  }
+
+  return true;
+}
+
+// Sign up button click event
+document.getElementById("signupbtn").addEventListener("click", function() {
+  // Change button text and disable sign up button
+  document.getElementById("signupbtn").innerHTML = "Signing up...";
+  document.getElementById("signupbtn").disabled = true;
+
+  // Check if form is filled in
+  if (checkForm()) {
+    // Submit form data to server
+    //...
+  }
+
+  // Re-enable sign up button and change button text
+  document.getElementById("signupbtn").innerHTML = "Sign up";
+  document.getElementById("signupbtn").disabled = false;
+});
     </script>
 </body>
 </html>
